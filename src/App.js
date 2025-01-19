@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import {useState,useEffect, useRef} from 'react';
 import './App.css';
 import Navbar from './component/Navbar';
+import { counterContext } from './context/context';
 
 
 
@@ -40,14 +40,19 @@ useEffect(() => {
 const countRef = useRef(0)
 const btnRef = useRef(0)  // we use useRef because across re-renders the value can persist, where as a state or local variable will change.
 
+
+// useContext example
+//whatever is wrapped inside " <counterContext.Provider> " will have access to its value and can be used in any component without the need of prop drilling
   return (
     <>
+    <counterContext.Provider value={count}> 
     <Navbar color={color} countRef={countRef.current}/>
     <div className="App">
       <h1>{message} {name}</h1>
     <button onClick={()=>{updateStates()}}>Click me!</button>
     <button ref={btnRef} onClick={()=>{setCount(count+1)}}>count is {count}</button>
     </div>
+    </counterContext.Provider>
     </>
   );
 }
