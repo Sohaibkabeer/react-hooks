@@ -3,10 +3,10 @@ import React from "react";
 import Icon from "./Icon";
 
 const Navbar = ({ color,countRef }) => {
-  // useEffect example
-  useEffect(() => {
-    alert("Color was changed"); // every time color is changed this will run
-  }, [color]);
+  // // useEffect example
+  // useEffect(() => {
+  //   alert("Color was changed"); // every time color is changed this will run
+  // }, [color]);
 
   return (
     <div>
